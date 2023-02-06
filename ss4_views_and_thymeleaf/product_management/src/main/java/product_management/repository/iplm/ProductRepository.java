@@ -4,70 +4,60 @@ import org.springframework.stereotype.Repository;
 import product_management.model.Product;
 import product_management.repository.IProductRepository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public class ProductRepository implements IProductRepository {
-    static List<Product>productList=new ArrayList<>();
-    static {
-        productList.add(new Product(1,"Sirius","Yamaha",20,340000000,"perfect"));
-        productList.add(new Product(2,"Dream","Honda",20,140000000,"Slow"));
-        productList.add(new Product(3,"Cup","Honda",19,120000000,"Old"));
-    }
+    @PersistenceContext
+    EntityManager entityManager;
 
     @Override
     public List<Product> findAll() {
+        List<Product> productList = null;
+        productList = entityManager.createQuery("select p from Product p").getResultList();
         return productList;
     }
 
     @Override
     public Product findById(int id) {
-        Product product=null;
-        for (Product pr:productList) {
-            if (pr.getId()==id){
-                product=pr;
-            }
-        }
-        return product;
+        return entityManager.find(Product.class, id);
     }
 
+    @Transactional
     @Override
     public void save(Product product) {
-        productList.add(product);
+        entityManager.persist(product);
     }
 
+    @Transactional
     @Override
     public void remove(int id) {
-        Product product=null;
-        for (Product pr:productList) {
-            if (pr.getId()==id){
-                product=pr;
-            }
-        }
-        productList.remove(product);
-
+        Product product = findById(id);
+        entityManager.remove(product);
     }
 
+    @Transactional
     @Override
-    public void update(int id, Product product) {
-        Product productUpdate=null;
-        for (Product pr:productList) {
-            if (pr.getId()==id){
-                productUpdate=pr;
-            }
-        }
-        productUpdate.setName(product.getName());
-        productUpdate.setMaker(product.getMaker());
-        productUpdate.setQuantity(product.getQuantity());
-        productUpdate.setCost(product.getCost());
-        productUpdate.setDescription(product.getDescription());
+    public void update(Product product) {
+        Product product1 = findById(product.getId());
+        product1.setName(product.getName());
+        product1.setMaker(product.getMaker());
+        product1.setQuantity(product.getQuantity());
+        product1.setCost(product.getCost());
+        product1.setDescription(product.getDescription());
+        entityManager.merge(product1);
     }
 
     @Override
     public List<Product> search(String name) {
-        List<Product>products=new ArrayList<>();
-        for (Product pr:productList) {
-            if (pr.getName().contains(name)){
+        List<Product> products = new ArrayList<>();
+        List<Product> productList = findAll();
+        for (Product pr : productList) {
+            if (pr.getName().contains(name)) {
                 products.add(pr);
             }
         }

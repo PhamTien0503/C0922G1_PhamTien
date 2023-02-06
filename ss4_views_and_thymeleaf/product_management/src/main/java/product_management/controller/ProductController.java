@@ -25,8 +25,7 @@ public class ProductController {
     @PostMapping("create")
     public String save(@ModelAttribute Product product, Model model){
         productService.save(product);
-//        model.addAttribute("mess","Success!!");
-        return "create";
+        return "redirect:/product";
     }
     @GetMapping("delete")
     public String showFormDelete(@RequestParam int id, Model model){
@@ -45,7 +44,7 @@ public class ProductController {
     }
     @PostMapping("update")
     public String update(@RequestParam int id,@ModelAttribute Product product){
-        productService.update(id,product);
+        productService.update(product);
         return "redirect:/product";
     }
 
