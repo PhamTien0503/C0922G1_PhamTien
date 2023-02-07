@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import com.blog_app.repository.IBlogRepository;
 
 import java.util.List;
+
 @Service
 public class BlogService implements IBlogService {
     @Autowired
-     private IBlogRepository blogRepository;
+    private IBlogRepository blogRepository;
+
     @Override
     public List<Blog> findAll() {
         return blogRepository.findAll();
@@ -18,7 +20,7 @@ public class BlogService implements IBlogService {
 
     @Override
     public Blog findById(int id) {
-        return null;
+        return blogRepository.findById(id).get();
     }
 
     @Override
@@ -26,7 +28,7 @@ public class BlogService implements IBlogService {
         try {
             blogRepository.save(blog);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -34,11 +36,23 @@ public class BlogService implements IBlogService {
 
     @Override
     public boolean remove(int id) {
-        return false;
+        try {
+            blogRepository.delete(findById(id));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean update(Blog blog) {
-        return false;
+        try {
+            blogRepository.save(blog);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
