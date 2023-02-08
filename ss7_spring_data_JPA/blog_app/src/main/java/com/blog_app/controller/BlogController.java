@@ -3,7 +3,11 @@ package com.blog_app.controller;
 import com.blog_app.model.Blog;
 import com.blog_app.repository.ICategoryRepository;
 import com.blog_app.service.IBlogService;
+import com.blog_app.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,48 +18,49 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
     @Autowired
-    private ICategoryRepository categoryRepository;
+    private ICategoryService categoryService;
 
     @GetMapping("")
-    public String showList(Model model) {
-        model.addAttribute("blogList", blogService.findAll());
+    public String showList(Model model, @PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
+        model.addAttribute("blogPage", blogService.findAll(pageable));
         return "blog/list";
     }
 
     @GetMapping("/create")
     public String showFormCreate(Model model) {
         model.addAttribute("blog", new Blog());
+        model.addAttribute("categoryList", categoryService.findAll());
         return "blog/create";
     }
 
     @PostMapping("/create")
-    public String save(@ModelAttribute Blog blog, Model model) {
+    public String save(@ModelAttribute Blog blog, Model model,@PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
         boolean check = blogService.save(blog);
         String str = "Add success!!";
         if (!check) {
             str = "Add failed!!!";
         }
         model.addAttribute("mess", str);
-        model.addAttribute("blogList", blogService.findAll());
+        model.addAttribute("blogPage", blogService.findAll(pageable));
         return "blog/list";
     }
 
     @GetMapping("update")
     public String showFormUpdate(@RequestParam int id, Model model) {
-        model.addAttribute("categoryList", categoryRepository.findAll());
+        model.addAttribute("categoryList", categoryService.findAll());
         model.addAttribute("blog", blogService.findById(id));
         return "blog/update";
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Blog blog, Model model) {
+    public String update(@ModelAttribute Blog blog, Model model,@PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
         boolean check = blogService.update(blog);
         String str = "Update success!!";
         if (!check) {
             str = "Update failed!!!";
         }
         model.addAttribute("mess", str);
-        model.addAttribute("blogList", blogService.findAll());
+        model.addAttribute("blogPage", blogService.findAll(pageable));
         return "blog/list";
     }
 
@@ -66,14 +71,14 @@ public class BlogController {
     }
 
     @PostMapping("/delete")
-    public String delete(@ModelAttribute Blog blog, Model model) {
+    public String delete(@ModelAttribute Blog blog, Model model,@PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
         boolean check = blogService.remove(blog.getId());
         String str = "Delete success!!";
         if (!check) {
             str = "Delete failed!!!";
         }
         model.addAttribute("mess", str);
-        model.addAttribute("blogList", blogService.findAll());
+        model.addAttribute("blogPage", blogService.findAll(pageable));
         return "blog/list";
     }
 
@@ -82,4 +87,5 @@ public class BlogController {
         model.addAttribute("blog", blogService.findById(id));
         return "blog/detail";
     }
+
 }

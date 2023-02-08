@@ -2,6 +2,8 @@ package com.blog_app.controller;
 
 import com.blog_app.model.Blog;
 import com.blog_app.model.Category;
+import com.blog_app.repository.ICategoryRepository;
+import com.blog_app.service.IBlogService;
 import com.blog_app.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("category")
 public class CategoryController {
+    @Autowired
+    private IBlogService blogService;
     @Autowired
     private ICategoryService categoryService;
     @GetMapping("")
@@ -72,5 +76,9 @@ public class CategoryController {
         model.addAttribute("categoryList", categoryService.findAll());
         return "category/list";
     }
-
+    @GetMapping("show")
+    public  String searchBlog(@RequestParam int id, Model model){
+        model.addAttribute("blogList",blogService.findBlogByCategory_Id(id));
+        return "blog/list";
+    }
 }

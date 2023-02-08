@@ -14,7 +14,7 @@
   <tr>
     <th>Id</th>
     <th>Name</th>
-    <th>Summary</th>
+    <th>Category</th>
     <th>Content</th>
     <th>Update</th>
     <th>Delete</th>
@@ -22,7 +22,7 @@
   <tr >
     <td th:text="${blog.getId()}"></td>
     <td th:text="${blog.getName()}"></td>
-    <td th:text="${blog.getSummary()}"></td>
+    <td th:text="${blog.getCategory().getName()}"></td>
     <td th:text="${blog.getContent()}"></td>
     <th>
       <button class="btn btn-outline-success"><a th:href="@{/blog/update(id=${blog.getId()})}">Update</a></button>
