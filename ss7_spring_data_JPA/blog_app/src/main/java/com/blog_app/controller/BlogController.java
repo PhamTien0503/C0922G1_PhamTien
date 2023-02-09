@@ -11,6 +11,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("blog")
@@ -34,15 +35,15 @@ public class BlogController {
     }
 
     @PostMapping("/create")
-    public String save(@ModelAttribute Blog blog, Model model,@PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
+    public String save(@ModelAttribute Blog blog, Model model,
+                       RedirectAttributes redirectAttributes) {
         boolean check = blogService.save(blog);
         String str = "Add success!!";
         if (!check) {
             str = "Add failed!!!";
         }
-        model.addAttribute("mess", str);
-        model.addAttribute("blogPage", blogService.findAll(pageable));
-        return "blog/list";
+        redirectAttributes.addFlashAttribute("mess", str);
+        return "redirect:/blog";
     }
 
     @GetMapping("update")
@@ -53,15 +54,14 @@ public class BlogController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Blog blog, Model model,@PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
+    public String update(@ModelAttribute Blog blog, Model model, RedirectAttributes redirectAttributes) {
         boolean check = blogService.update(blog);
         String str = "Update success!!";
         if (!check) {
             str = "Update failed!!!";
         }
-        model.addAttribute("mess", str);
-        model.addAttribute("blogPage", blogService.findAll(pageable));
-        return "blog/list";
+        redirectAttributes.addFlashAttribute("mess", str);
+        return "redirect:/blog";
     }
 
     @GetMapping("delete")
@@ -71,15 +71,14 @@ public class BlogController {
     }
 
     @PostMapping("/delete")
-    public String delete(@ModelAttribute Blog blog, Model model,@PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
+    public String delete(@ModelAttribute Blog blog, Model model, RedirectAttributes redirectAttributes) {
         boolean check = blogService.remove(blog.getId());
         String str = "Delete success!!";
         if (!check) {
             str = "Delete failed!!!";
         }
-        model.addAttribute("mess", str);
-        model.addAttribute("blogPage", blogService.findAll(pageable));
-        return "blog/list";
+        redirectAttributes.addFlashAttribute("mess", str);
+        return "redirect:/blog";
     }
 
     @GetMapping("/detail")
