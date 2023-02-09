@@ -40,6 +40,7 @@
 </table>
 <div>
     <a th:href="@{/blog(page=${blogPage.number-1})}">Late</a>
+    <span th:text="${blogPage.number + 1} "></span>/<span th:text="${blogPage.totalPages}"></span>
     <a th:href="@{/blog(page=${blogPage.number+1})}">Next</a>
 </div>
 <div th:replace="~{blog/layout::footer}"></div>
