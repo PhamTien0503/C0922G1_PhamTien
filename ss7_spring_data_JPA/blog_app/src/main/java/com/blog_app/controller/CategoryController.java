@@ -6,6 +6,9 @@ import com.blog_app.repository.ICategoryRepository;
 import com.blog_app.service.IBlogService;
 import com.blog_app.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -77,8 +80,8 @@ public class CategoryController {
         return "category/list";
     }
     @GetMapping("show")
-    public  String searchBlog(@RequestParam int id, Model model){
-        model.addAttribute("blogList",blogService.findBlogByCategory_Id(id));
+    public  String searchBlog(@RequestParam int id, Model model, @PageableDefault(size = 2, page = 0, sort = "date",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("blogPage",blogService.findBlogByCategory_Id(id,pageable));
         return "blog/list";
     }
 }

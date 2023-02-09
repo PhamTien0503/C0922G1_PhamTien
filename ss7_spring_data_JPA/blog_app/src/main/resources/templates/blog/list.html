@@ -17,6 +17,7 @@
         <th>Id</th>
         <th>Name</th>
         <th>Category</th>
+        <th>Date</th>
         <th>Update</th>
         <th>Delete</th>
         <th>Detail</th>
@@ -25,6 +26,7 @@
         <td th:text="${blog.getId()}"></td>
         <td th:text="${blog.getName()}"></td>
         <td th:text="${blog.getCategory().getName()}"></td>
+        <td th:text="${blog.getDate()}"></td>
         <th>
             <button class="btn btn-outline-success"><a th:href="@{/blog/update(id=${blog.getId()})}">Update</a></button>
         </th>

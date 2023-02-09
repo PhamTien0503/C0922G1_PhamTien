@@ -9,8 +9,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy= "category")
-     private  Set<Blog> blogSet;
+    @OneToMany(mappedBy = "category")
+    private Set<Blog> blogSet;
 
 
     public Category() {

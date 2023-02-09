@@ -10,12 +10,13 @@
 <body>
 <div th:replace="~{blog/layout::header}"></div>
 <div class="d-flex justify-content-center">
-    <form class="w-25 border border-2 border-dark p-3 rounded " th:object="${blog}" th:action="@{/blog/update}" method="post">
+    <form class="w-25 border border-2 border-dark p-3 rounded " th:object="${blog}" th:action="@{/blog/update}"
+          method="post">
         <div>
             <p style="color: red" th:text="${mess}"></p>
         </div>
 
-        <div class="mb-3" style="display: none" >
+        <div class="mb-3" style="display: none">
             <label for="id" class="form-label">Id</label>
             <input type="number" class="form-control" id="id" th:field="*{id}">
         </div>
@@ -24,10 +25,15 @@
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" th:field="*{name}">
         </div>
-
-        <select  class="form-select" aria-label="Default select example" th:field="*{category}">
-            <option th:each="c:${categoryList}" th:text="${c.getName()}"  th:value="${c.getId()}"></option>
-        </select>
+        <div>
+            <select class="form-select" aria-label="Default select example" th:field="*{category}">
+                <option th:each="c:${categoryList}" th:text="${c.getName()}" th:value="${c.getId()}"></option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Content</label>
+            <input type="date" class="form-control" id="date" th:field="*{date}">
+        </div>
 
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
@@ -35,7 +41,7 @@
         </div>
 
         <div>
-            <button class="btn btn-outline-success" type="submit" >Update</button>
+            <button class="btn btn-outline-success" type="submit">Update</button>
         </div>
     </form>
 </div>

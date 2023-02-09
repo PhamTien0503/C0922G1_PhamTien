@@ -21,7 +21,7 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping("")
-    public String showList(Model model, @PageableDefault(size = 2, page = 0, sort = "name",direction = Sort.Direction.DESC)Pageable pageable) {
+    public String showList(Model model, @PageableDefault(size = 2, page = 0, sort = "date", direction = Sort.Direction.DESC) Pageable pageable) {
         model.addAttribute("blogPage", blogService.findAll(pageable));
         return "blog/list";
     }

@@ -1,7 +1,6 @@
 package com.blog_app.model;
 
 
-
 import javax.persistence.*;
 
 @Entity
@@ -11,17 +10,19 @@ public class Blog {
     private int id;
     private String name;
     @ManyToOne
-    @JoinColumn(name = "category_id",referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
+    private String date;
     private String content;
 
     public Blog() {
     }
 
-    public Blog(int id, String name, Category category, String content) {
+    public Blog(int id, String name, Category category, String date, String content) {
         this.id = id;
         this.name = name;
         this.category = category;
+        this.date = date;
         this.content = content;
     }
 
@@ -47,6 +48,14 @@ public class Blog {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getContent() {

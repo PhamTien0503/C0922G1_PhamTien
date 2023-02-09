@@ -24,10 +24,17 @@
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" th:field="*{name}">
         </div>
-        <label for="category" class="form-label">Category</label>
-        <select  class="form-select" aria-label="Default select example" id="category" th:field="*{category}">
-            <option th:each="c:${categoryList}" th:text="${c.getName()}"  th:value="${c.getId()}"></option>
-        </select>
+        <div>
+            <label for="category" class="form-label">Category</label>
+            <select  class="form-select" aria-label="Default select example" id="category" th:field="*{category}">
+                <option th:each="c:${categoryList}" th:text="${c.getName()}"  th:value="${c.getId()}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="date" class="form-label">Content</label>
+            <input type="date" class="form-control" id="date" th:field="*{date}">
+        </div>
 
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>

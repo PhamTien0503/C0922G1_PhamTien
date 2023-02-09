@@ -13,5 +13,5 @@ public interface IBlogService {
     boolean save(Blog blog);
     boolean remove(int id);
     boolean update(Blog blog);
-    List<Blog>findBlogByCategory_Id(int id);
+    Page<Blog>findBlogByCategory_Id(int id,Pageable pageable);
 }
