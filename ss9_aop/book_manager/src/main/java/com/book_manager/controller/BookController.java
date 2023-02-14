@@ -58,8 +58,8 @@ public class BookController {
         return "giveback";
     }
 
-    @PostMapping("giveBack")
-    public String giveBack(@RequestParam int code, RedirectAttributes redirectAttributes, Model model) {
+    @GetMapping("giveBackBook")
+    public String giveBack(@RequestParam int code, Model model) {
         BorrowCard borrowCard = borrowCardService.findByCode(code);
         Book book = borrowCard.getBook();
         int number = book.getQuantity() + 1;

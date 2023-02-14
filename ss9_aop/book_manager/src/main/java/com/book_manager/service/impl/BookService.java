@@ -1,4 +1,4 @@
-package com.book_manager.service.iplm;
+package com.book_manager.service.impl;
 
 import com.book_manager.model.Book;
 import com.book_manager.repository.IBookRepository;

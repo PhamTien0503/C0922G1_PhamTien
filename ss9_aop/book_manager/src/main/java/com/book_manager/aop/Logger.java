@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class Logger {
-    static int count=0;
-    static int count1=0;
+    private static int count=0;
+    private static int count1=0;
     @Pointcut("within(com.book_manager.controller.BookController)")
     public void getShow(){
 

@@ -10,27 +10,12 @@
 <body>
 <div th:replace="~{layout::header}"></div>
 <div class="d-flex justify-content-center">
-    <form class="w-25 border border-2 border-dark p-3 rounded " th:object="${borrowCard}" th:action="@{/book/giveBack}"
-          method="post">
-        <div>
-            <p style="color: red" th:text="${mess}"></p>
-        </div>
-
-        <div class="mb-3" style="display: none">
-            <label for="id" class="form-label">Id</label>
-            <input type="number" class="form-control" id="id" th:field="*{id}">
-        </div>
-
+    <form class="w-25 border border-2 border-dark p-3 rounded " th:action="@{/book/giveBackBook}"
+          method="get">
         <div class="mb-3">
             <label for="name" class="form-label">Code</label>
-            <input type="text" class="form-control" id="name" th:field="*{code}">
+            <input type="text" class="form-control" id="name" th:name="code">
         </div>
-
-        <div class="mb-3" style="display: none" >
-            <label for="content" class="form-label">Content</label>
-            <input type="number" class="form-control" id="content" th:field="*{book}">
-        </div>
-
         <div>
             <button class="btn btn-outline-success" type="submit">Give Back</button>
         </div>
