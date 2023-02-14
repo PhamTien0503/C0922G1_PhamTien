@@ -36,16 +36,20 @@ public class BookController {
     public String borrowBook(Model model, @RequestParam int id, RedirectAttributes redirectAttributes) {
         Book book = bookService.findById(id);
         int number = book.getQuantity() - 1;
-        book.setQuantity(number);
-        bookService.save(book);
-        model.addAttribute("bookList", bookService.findAll());
-        Random random = new Random();
-        int bookCode = random.nextInt(99999 - 10000 + 1) + 10000;
-        BorrowCard borrowCard = new BorrowCard(bookCode, book);
-        borrowCardService.save(borrowCard);
-        String str = "Borrow book success with code: " + bookCode;
-        redirectAttributes.addFlashAttribute("mess", str);
-        return "redirect:/book";
+        if (number < 0) {
+            return "errors";
+        } else {
+            book.setQuantity(number);
+            bookService.save(book);
+            model.addAttribute("bookList", bookService.findAll());
+            Random random = new Random();
+            int bookCode = random.nextInt(99999 - 10000 + 1) + 10000;
+            BorrowCard borrowCard = new BorrowCard(bookCode, book);
+            borrowCardService.save(borrowCard);
+            String str = "Borrow book success with code: " + bookCode;
+            redirectAttributes.addFlashAttribute("mess", str);
+            return "redirect:/book";
+        }
     }
 
     @GetMapping("giveBack")
