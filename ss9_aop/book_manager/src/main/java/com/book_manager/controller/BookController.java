@@ -66,4 +66,8 @@ public class BookController {
         model.addAttribute("mess", str);
         return "list";
     }
+    @ExceptionHandler(Exception.class)
+    public String handlerException(){
+        return "error";
+    }
 }
