@@ -23,7 +23,7 @@ public class ProductController {
 
     @GetMapping("/shop")
     public ModelAndView showShop() {
-        ModelAndView modelAndView = new ModelAndView("/shop");
+        ModelAndView modelAndView = new ModelAndView("/list_product");
         modelAndView.addObject("products", productService.findAll());
         return modelAndView;
     }
@@ -38,7 +38,18 @@ public class ProductController {
             cart.addProduct(productOptional.get());
             return "redirect:/shopping-cart";
         }
+        if (action.equals("subtract")) {
+            cart.subtractProduct(productOptional.get());
+            return "redirect:/shopping-cart";
+        }
         cart.addProduct(productOptional.get());
         return "redirect:/shop";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String addToCart(@PathVariable Long id, @ModelAttribute Cart cart) {
+        Optional<Product> productOptional = productService.findById(id);
+        cart.deleteProduct(productOptional.get());
+        return "redirect:/shopping-cart";
     }
 }
