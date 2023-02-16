@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+</head>
+<body>
+<div th:replace="~{category/layout::header}"></div>
+<h1>List Category</h1>
+<button type="submit" class="btn btn-warning"><a th:href="@{/category/create}">Add Category</a></button>
+<h3 th:text="${mess}"></h3>
+<table border="1" class="table table-success">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Show Blog</th>
+    </tr>
+    <tr th:each="category : ${categoryList}">
+        <td th:text="${category.getId()}"></td>
+        <td th:text="${category.getName()}"></td>
+        <th>
+            <button class="btn btn-outline-success"><a th:href="@{/category/update(id=${category.getId()})}">Update</a></button>
+        </th>
+        <th>
+            <button class="btn btn-outline-danger"><a th:href="@{/category/delete(id=${category.getId()})}">Delete</a></button>
+        </th>
+        <th>
+            <button class="btn btn-outline-warning"><a th:href="@{/category/show (id=${category.getId()})}">Show Blog</a></button>
+        </th>
+    </tr>
+</table>
+<div th:replace="~{category/layout::footer}"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</html>

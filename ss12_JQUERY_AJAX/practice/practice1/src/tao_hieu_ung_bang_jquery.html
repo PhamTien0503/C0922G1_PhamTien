@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#hide').click(function () {
+                $('p').hide()
+            })
+            $('#show').click(function () {
+                $('p').show()
+            })
+            $("#animation").click(function () {
+                var div = $("div");
+                div.animate({left: '100px'}, "slow");
+                div.animate({fontSize: '100px'}, "slow");
+            });
+            $("#reanimation").click(function () {
+                var div = $("div");
+                div.animate({left: '-100px'}, "slow");
+                div.animate({fontSize: '20px'}, "slow");
+            });
+        })
+    </script>
+</head>
+<body>
+<p>Content</p>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+<button id="animation">Start Animation</button>
+<button id="reanimation">Re Animation</button>
+<div style="background-color: blue;height: 100px;width: 200px;position: absolute">Hello</div>
+</body>
+</html>
