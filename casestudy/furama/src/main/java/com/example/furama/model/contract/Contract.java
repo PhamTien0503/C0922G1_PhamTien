@@ -12,9 +12,12 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer contractId;
+    @Column(nullable = false)
     private String startDate;
+    @Column(nullable = false)
     private String endDate;
-    private String deposit;
+    @Column(nullable = false)
+    private double deposit;
     private boolean deleteStatus;
 
     @OneToMany(mappedBy = "contract")
@@ -59,11 +62,11 @@ public class Contract {
         this.endDate = endDate;
     }
 
-    public String getDeposit() {
+    public double getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(String deposit) {
+    public void setDeposit(double deposit) {
         this.deposit = deposit;
     }
 

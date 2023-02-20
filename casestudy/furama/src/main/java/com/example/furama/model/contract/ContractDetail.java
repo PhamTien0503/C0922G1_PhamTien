@@ -7,6 +7,7 @@ public class ContractDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contractDetailId;
+    @Column(nullable = false)
     private int quantity;
 
     @ManyToOne

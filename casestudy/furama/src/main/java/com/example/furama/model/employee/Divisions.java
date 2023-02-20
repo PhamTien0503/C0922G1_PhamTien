@@ -1,5 +1,7 @@
 package com.example.furama.model.employee;
 
+import org.hibernate.annotations.Columns;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -8,6 +10,7 @@ public class Divisions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer divisionId;
+    @Column(unique = true,nullable = false,length = 45)
     private String divisionName;
 
     @OneToMany(mappedBy = "divisions")

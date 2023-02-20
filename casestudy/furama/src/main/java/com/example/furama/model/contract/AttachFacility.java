@@ -8,9 +8,13 @@ public class AttachFacility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer attachFacilityId;
+    @Column(nullable = false,length = 45)
     private String attachFacilityName;
-    private String attachFacilityCost;
+    @Column(nullable = false)
+    private double attachFacilityCost;
+    @Column(length = 10,nullable = false)
     private String attachFacilityUnit;
+    @Column(length = 45,nullable = false)
     private String attachFacilityStatus;
 
     @OneToMany(mappedBy = "attachFacility")
@@ -35,11 +39,11 @@ public class AttachFacility {
         this.attachFacilityName = attachFacilityName;
     }
 
-    public String getAttachFacilityCost() {
+    public double getAttachFacilityCost() {
         return attachFacilityCost;
     }
 
-    public void setAttachFacilityCost(String attachServiceCost) {
+    public void setAttachFacilityCost(double attachServiceCost) {
         this.attachFacilityCost = attachServiceCost;
     }
 

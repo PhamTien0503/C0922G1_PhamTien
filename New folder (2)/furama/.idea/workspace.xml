@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36a4acab-1934-4665-a0fd-1c50ffbd603c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/security/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/contract/AttachFacility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/contract/AttachFacility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/contract/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/contract/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/contract/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/contract/ContractDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/customer/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/customer/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/Divisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/Divisions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/EducationDegree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/EducationDegree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/employee/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/facility/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/facility/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/facility/FacilityType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/facility/FacilityType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/facility/RentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/java/com/example/furama/model/facility/RentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../casestudy/furama/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../casestudy/furama/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_security/CGDN-SpringBoot-SpringSecurity" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss13_security/CGDN-SpringBoot-SpringSecurity" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LwDSTN7pSoxhtYrfV1xKu3TibO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CODEGYM/MODULE_4/module4/casestudy/furama",
+    "spring.configuration.checksum": "4a29ccc7d1a34c8043ae8db6a246ff17"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODEGYM\MODULE_4\module4\casestudy\furama\src\main\java\com\example\furama\model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FuramaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="furama.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.furama.FuramaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36a4acab-1934-4665-a0fd-1c50ffbd603c" name="Changes" comment="" />
+      <created>1676773254724</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676773254724</updated>
+      <workItem from="1676773257457" duration="2042000" />
+      <workItem from="1676859778292" duration="4536000" />
+      <workItem from="1676865292128" duration="158000" />
+      <workItem from="1676865500223" duration="769000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

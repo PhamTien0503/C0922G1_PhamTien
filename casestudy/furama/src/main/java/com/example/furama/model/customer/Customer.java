@@ -1,21 +1,31 @@
 package com.example.furama.model.customer;
 
 import com.example.furama.model.contract.Contract;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer customerId;
+    private int customerId;
+    @Column(nullable = false,length = 45)
     private String customerName;
+    @Column(nullable = false)
     private String customerBirthday;
-    private Integer customerGender;
+    @Column(nullable = false)
+    private int customerGender;
+    @Column(unique = true, nullable = false)
     private String customerIdCard;
+    @Column(unique = true,nullable = false)
     private String customerPhone;
+    @Column(unique = true,length = 45,nullable = false)
     private String customerEmail;
+    @Column(length = 45)
     private String customerAddress;
     private boolean deleteStatus;
 

@@ -10,12 +10,17 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
+    @Column(nullable = false,length = 45)
     private String employeeName;
     private String employeeBirthday;
+    @Column(unique = true)
     private String employeeIdCard;
-    private String employeeSalary;
+    private double employeeSalary;
+    @Column(unique = true,nullable = false)
     private String employeePhone;
+    @Column(unique = true,length = 45)
     private String employeeEmail;
+    @Column(length = 45)
     private String employeeAddress;
     private boolean deleteStatus;
 
@@ -69,11 +74,11 @@ public class Employee {
         this.employeeIdCard = employeeIdCard;
     }
 
-    public String getEmployeeSalary() {
+    public double getEmployeeSalary() {
         return employeeSalary;
     }
 
-    public void setEmployeeSalary(String employeeSalary) {
+    public void setEmployeeSalary(double employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 
