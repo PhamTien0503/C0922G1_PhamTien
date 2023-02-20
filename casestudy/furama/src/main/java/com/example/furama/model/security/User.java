@@ -9,7 +9,7 @@ import java.util.Set;
 public class User {
     @Id
     @Column(length = 255)
-    private String userName;
+    private String username;
 
     @JsonIgnore
     @Column(length = 255, nullable = false)
@@ -24,18 +24,18 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String password, Set<Role> roleSet) {
-        this.userName = userName;
+    public User(String username, String password, Set<Role> roleSet) {
+        this.username = username;
         this.password = password;
         this.roleSet = roleSet;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
