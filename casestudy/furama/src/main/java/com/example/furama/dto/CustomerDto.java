@@ -1,31 +1,29 @@
-package com.example.furama.model.customer;
+package com.example.furama.dto;
 
 import com.example.furama.model.contract.Contract;
-import org.hibernate.validator.constraints.UniqueElements;
+import com.example.furama.model.customer.CustomerType;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-public class Customer {
+public class CustomerDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
-    @Column(nullable = false,length = 45)
+
     private String customerName;
-    @Column(nullable = false)
+
     private String customerBirthday;
-    @Column(nullable = false)
+
     private boolean customerGender;
-    @Column(unique = true, nullable = false)
+
     private String customerIdCard;
-    @Column(unique = true,nullable = false)
+
     private String customerPhone;
-    @Column(unique = true,length = 45,nullable = false)
+
     private String customerEmail;
-    @Column(length = 45)
+
     private String customerAddress;
     private boolean deleteStatus=false;
 
@@ -36,7 +34,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private Set<Contract> contract;
 
-    public Customer() {
+    public CustomerDto() {
     }
 
     public Integer getCustomerId() {
