@@ -2,6 +2,7 @@ package com.example.furama.model.customer;
 
 import com.example.furama.model.contract.Contract;
 import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -27,7 +28,8 @@ public class Customer {
     private String customerEmail;
     @Column(length = 45)
     private String customerAddress;
-    private boolean deleteStatus=false;
+
+    private boolean deleteStatus;
 
     @ManyToOne
     @JoinColumn(name= "customer_type_id",referencedColumnName = "customerTypeId")

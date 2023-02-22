@@ -2,15 +2,18 @@ package com.example.furama.dto;
 
 import com.example.furama.model.contract.Contract;
 import com.example.furama.model.customer.CustomerType;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
-@Entity
-public class CustomerDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class CustomerDto implements Validator {
+
     private int customerId;
+    @NotBlank(message = "Tên không được để trống.")
 
     private String customerName;
 
@@ -27,11 +30,10 @@ public class CustomerDto {
     private String customerAddress;
     private boolean deleteStatus=false;
 
-    @ManyToOne
-    @JoinColumn(name= "customer_type_id",referencedColumnName = "customerTypeId")
+
     private CustomerType customerType;
 
-    @OneToMany(mappedBy = "customer")
+
     private Set<Contract> contract;
 
     public CustomerDto() {
@@ -123,5 +125,15 @@ public class CustomerDto {
 
     public void setDeleteStatus(boolean deleteStatus) {
         this.deleteStatus = deleteStatus;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }
