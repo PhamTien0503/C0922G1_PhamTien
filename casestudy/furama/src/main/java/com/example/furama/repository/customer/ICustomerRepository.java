@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public interface ICustomerRepository extends JpaRepository<Customer,Integer> {
     @Query(value = "select * from customer where customer_name like %:nameSearch% " +
             "and customer_email like %:emailSearch% and customer_type_id like %:idSearch%",nativeQuery = true)

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -40,7 +41,7 @@ public class CustomerService implements ICustomerService {
     public Customer findById(int id) {
         return customerRepository.findById(id).get();
     }
-
+    @Transactional
     @Override
     public void delete(int id) {
         customerRepository.deleteLogical(id);
