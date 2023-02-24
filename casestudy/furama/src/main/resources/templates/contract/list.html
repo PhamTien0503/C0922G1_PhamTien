@@ -277,43 +277,5 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous">
 </script>
-<!--<script>-->
-<!--    function addContractdetail(id) {-->
-<!--        document.getElementById("contractId").value = id;-->
-<!--    }-->
-
-<!--    function showAttachDetail(id) {-->
-<!--        $("#showSlow").empty();-->
-<!--        $("#note").show();-->
-<!--        $.ajax({-->
-<!--            url: "http://localhost:8080/api/contract/v1/" + id,-->
-<!--            type: "GET",-->
-<!--            dataType: "json",-->
-<!--            success: function (data) {-->
-<!--                if (data.length > 0) {-->
-<!--                    $("#note").hide();-->
-<!--                    let tr = [];-->
-
-<!--                    tr.push("<tr>");-->
-<!--                    tr.push("<th>" + "Tên dịch vụ đi kèm" + "</th>");-->
-<!--                    tr.push("<th class='px-5'>" + "Đơn vị" + "</th>");-->
-<!--                    tr.push("<th class='text-center'>" + "Số lượng" + "</th>");-->
-<!--                    tr.push("</tr>");-->
-
-<!--                    for (let i = 0; i < data.length; i++) {-->
-<!--                        tr.push("<tr>");-->
-<!--                        tr.push("<td class='text-primary h6'>" + data[i].nameDto + "</td>");-->
-<!--                        tr.push("<td class='text-primary px-5'>" + data[i].unitDto + "</td>");-->
-<!--                        tr.push("<td class='text-primary text-center'>" + data[i].quantityDto + "</td>");-->
-<!--                        tr.push("</tr>");-->
-<!--                    }-->
-<!--                    $("#showSlow").append(tr.join(""));-->
-<!--                    $("#showSlow").hide();-->
-<!--                    $("#showSlow").fadeIn(4000);-->
-<!--                }-->
-<!--            }-->
-<!--        })-->
-<!--    }-->
-<!--</script>-->
 </body>
 </html>
