@@ -1,10 +1,7 @@
-package com.example.furama.service.facility.iplm;
+package com.example.furama.service.facility.impl;
 
-import com.example.furama.model.customer.Customer;
 import com.example.furama.model.facility.Facility;
-import com.example.furama.repository.customer.ICustomerRepository;
 import com.example.furama.repository.facility.IFacilityRepository;
-import com.example.furama.service.customer.ICustomerService;
 import com.example.furama.service.facility.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,6 +20,11 @@ public class FacilityService implements IFacilityService {
     @Override
     public Page<Facility> findAll(Pageable pageable) {
         return facilityRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Facility> findAll() {
+        return facilityRepository.findAll();
     }
 
     @Override
