@@ -86,7 +86,7 @@
 
                 <button class="btn btn-primary btn-outline-secondary btn-sm ms-3 px-3"
                         th:attr="onclick=|showAttachDetail('${contract.contractId}')|" data-bs-toggle="modal"
-                        data-bs-target="#showAttachDetailPlush">
+                        data-bs-target="#showAttachDetail">
                     <span class="text-light m-auto">Danh sách dịch vụ đi kèm</span>
                 </button>
             </td>
@@ -324,6 +324,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-success" value="delete">Lưu</button>
             </div>
         </div>
     </div>
