@@ -66,4 +66,12 @@ public class ContractController {
         redirectAttributes.addFlashAttribute("message",message);
         return "redirect:/contract";
     }
+    @PostMapping("/addContractDetail")
+    public String saveDetail(@ModelAttribute ContractDetail contractDetail, RedirectAttributes redirectAttributes) {
+        ContractDetail contractDetail1=contractDetail;
+        iContractDetailService.save(contractDetail1);
+        redirectAttributes.addFlashAttribute("message", "Thêm mới hợp đồng chi tiết thành công!");
+
+        return "redirect:/contract";
+    }
 }

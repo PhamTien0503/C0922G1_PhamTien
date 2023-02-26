@@ -86,7 +86,7 @@
 
                 <button class="btn btn-primary btn-outline-secondary btn-sm ms-3 px-3"
                         th:attr="onclick=|showAttachDetail('${contract.contractId}')|" data-bs-toggle="modal"
-                        data-bs-target="#showAttachDetail">
+                        data-bs-target="#showAttachDetailPlush">
                     <span class="text-light m-auto">Danh sách dịch vụ đi kèm</span>
                 </button>
             </td>
@@ -260,7 +260,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="addContractDetailPlus" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+<div class="modal fade" id="addContractDetailplus" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form class="border border-2 border-success p-3 rounded formCSS"
@@ -273,7 +273,7 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="hidden" name="contractId" id="contractIdPlus" th:field="*{contract.contractId}"
+                        <input type="hidden" name="contractId" id="contractId" th:field="*{contract.contractId}"
                                readonly/>
 
                         <div class="form-group">
@@ -299,8 +299,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#addContract" onclick="show()">Lưu</button>
+                        <button type="submit" class="btn btn-success" value="delete">Lưu</button>
                     </div>
                 </div>
             </form>
@@ -396,6 +395,9 @@
                }
            }
        })
+   }
+   function addContractdetail(id) {
+       document.getElementById("contractId").value = id;
    }
 
 
