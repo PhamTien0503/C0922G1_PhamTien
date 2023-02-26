@@ -21,6 +21,12 @@ public class ContractDetail {
     public ContractDetail() {
     }
 
+    public ContractDetail(int quantity, AttachFacility attachFacility, Contract contract) {
+        this.quantity = quantity;
+        this.attachFacility = attachFacility;
+        this.contract = contract;
+    }
+
     public int getContractDetailId() {
         return contractDetailId;
     }

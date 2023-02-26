@@ -1,9 +1,11 @@
 package com.example.furama.service.contract.impl;
 
+import com.example.furama.dto.IContractDetailDto;
 import com.example.furama.model.contract.ContractDetail;
 import com.example.furama.repository.contract.IContractDetailRepository;
 import com.example.furama.service.contract.IContractDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,4 +24,10 @@ public class ContractDetailService implements IContractDetailService {
     public void save(ContractDetail contractDetail) {
         contractDetailRepository.save(contractDetail);
     }
+
+    @Override
+    public List<IContractDetailDto> showAll(int id) {
+        return contractDetailRepository.showAll(id);
+    }
+
 }

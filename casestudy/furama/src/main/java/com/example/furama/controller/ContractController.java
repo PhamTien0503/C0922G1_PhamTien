@@ -13,10 +13,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("contract")
@@ -51,12 +51,19 @@ public class ContractController {
         return "contract/list";
     }
     @PostMapping("add")
-    public String addContract(@ModelAttribute Contract contract,Model model){
+    public String addContract(@ModelAttribute Contract contract, RedirectAttributes redirectAttributes,
+                              @RequestParam List<Integer>quantityList,
+                              @RequestParam List<Integer>idAttachFacilityList){
         iContractService.save(contract);
+        if(quantityList!=null){
+            for (int i = 0; i < quantityList.size(); i++) {
+
+                ContractDetail contractDetail=new ContractDetail(quantityList.get(i),iAttachFacilityService.findById(idAttachFacilityList.get(i)),contract);
+                iContractDetailService.save(contractDetail);
+            }
+        }
         String message="Add Success!!!!";
+        redirectAttributes.addFlashAttribute("message",message);
         return "redirect:/contract";
     }
-
-
-
 }
