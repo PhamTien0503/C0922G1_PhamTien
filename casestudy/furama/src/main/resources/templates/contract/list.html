@@ -40,11 +40,11 @@
 </div>
 <h2 class="text-center fw-bold  my-3">DANH SÁCH HỢP ĐỒNG</h2>
 <div class="p-3">
-        <div class="justify-content-center d-flex">
-            <div class="alert alert-success alert-dismissible fade show w-50 text-center">
-                <strong th:text="${message}"></strong>
-            </div>
+    <div class="justify-content-center d-flex">
+        <div class="alert alert-success alert-dismissible fade show w-50 text-center">
+            <strong th:text="${message}"></strong>
         </div>
+    </div>
 
     <nav class="navbar navbar-expand-lg py-0 my-2">
         <div class="container-fluid">
@@ -144,16 +144,16 @@
                         <select id="facility" class="form-select" th:field="*{facility.facilityId}">
                             <option th:each="item : ${facilityList}" th:value="${item.facilityId}"
                                     th:text="${item.facilityName}"
-                                   ></option>
+                            ></option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group" style="display: none">
                     <label class="h6" for="cost">Giá dịch vụ:</label>
                     <div class="input-group">
-                        <select id="cost" class="form-select" >
+                        <select id="cost" class="form-select">
                             <option th:each="item : ${facilityList}" th:value="${item.getRentCost()}"
-                                   ></option>
+                            ></option>
                         </select>
                     </div>
                 </div>
@@ -196,26 +196,27 @@
                                placeholder="Nhập tiền đặt cọc..." th:field="*{deposit}"/>
                     </div>
 
-                <div><label for="attachFacilityList" class="h6">Dịch vụ đi kèm: </label>
-                    <div id="attachFacilityList"></div>
-                </div>
+                    <div><label for="attachFacilityList" class="h6">Dịch vụ đi kèm: </label>
+                        <div id="attachFacilityList"></div>
+                    </div>
 
-                <div>
-                    <label for="contractDetail" class="h6">Thêm hợp đồng chi tiết</label>
-                  <span><button class="btn btn-primary btn-outline-secondary btn-sm" type="button" data-bs-toggle="modal"
-                                data-bs-target="#addContractDetail" id="contractDetail">
+                    <div>
+                        <label for="contractDetail" class="h6">Thêm hợp đồng chi tiết</label>
+                        <span><button class="btn btn-primary btn-outline-secondary btn-sm" type="button"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#addContractDetail" id="contractDetail">
                     <span class="fa-solid fa-plus text-light h6 my-auto me-1"></span>
                 </button></span>
-                </div>
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-success">Lưu</button>
+                    </div>
                 </div>
-                </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 
 
@@ -234,14 +235,15 @@
                             <label class="h6" for="attachFacility">Tên dịch vụ đi kèm:</label>
                             <div class="input-group">
                                 <select id="attachFacility" class="form-select">
-                                    <option th:each="item : ${attachFacilityList}" th:value="${item.getAttachFacilityId()}"
+                                    <option th:each="item : ${attachFacilityList}"
+                                            th:value="${item.getAttachFacilityId()}"
                                             th:data-name="${item.attachFacilityName}"
                                             th:text="${item.attachFacilityName + ' (₫ ' + item.attachFacilityCost + ')'}"></option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="mt-3 form-group" >
+                        <div class="mt-3 form-group">
                             <label for="quantity" class="h6">Số lượng:</label>
                             <div class="input-group">
                                 <input type="text" id="quantity" class="form-control"
@@ -253,14 +255,16 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#addContract" onclick="addAttachFacility()">Lưu</button>
+                                data-bs-target="#addContract" onclick="addAttachFacility()">Lưu
+                        </button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class="modal fade" id="addContractDetailplus" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+<div class="modal fade" id="addContractDetailplus" tabindex="-1" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form class="border border-2 border-success p-3 rounded formCSS"
@@ -292,7 +296,6 @@
                             <div class="input-group">
                                 <input type="text" id="quantityPlus" class="form-control"
                                        placeholder="Nhập số lượng..." th:field="*{quantity}"/>
-                                <span class="input-group-text">#</span>
                             </div>
                         </div>
                     </div>
@@ -315,7 +318,7 @@
             </div>
 
             <div class="modal-body">
-                <table id="showSlow"></table>
+                <table id="show"></table>
 
                 <div class="h5 text-danger text-center" id="note">
                     Chưa có dịch vụ đi kèm trong hợp đồng!
@@ -330,76 +333,78 @@
     </div>
 </div>
 <script>
-   let nameAttachFacilityList=new Array();
-   let idAttachFacilityList=new Array();
-   let quantityList=new Array();
-   function addAttachFacility(){
-       let attachFacilityId=document.getElementById('attachFacility').value;
-       let attachFacility = $("#attachFacility option:selected").data("name");
-       let quantity= parseInt(document.getElementById('quantity').value);
+    let nameAttachFacilityList = new Array();
+    let idAttachFacilityList = new Array();
+    let quantityList = new Array();
 
-       if (nameAttachFacilityList.includes(attachFacility)){
-           let index=nameAttachFacilityList.indexOf(attachFacility);
-           quantityList[index]+=quantity;
-       }else {
-           nameAttachFacilityList.push(attachFacility);
-           quantityList.push(quantity);
-           idAttachFacilityList.push(attachFacilityId);
-       }
-       showAttachFacilityList(nameAttachFacilityList,quantityList);
-   }
-   function showAttachFacilityList(nameAttachFacilityList,quantityList){
-       let content="";
-       content+='<table style="border-style: solid; color: red" class="table table-striped" >'+'<tr>';
-       for (let i = 0; i < nameAttachFacilityList.length; i++) {
-           content+='<td>'+nameAttachFacilityList[i]+'</td>';
-       }
-       content+='</tr>';
-       content+='<tr>';
-       for (let i = 0; i < quantityList.length; i++) {
-           content+='<td>'+quantityList[i]+'</td>';
-       }
-       content+='</tr>';
-       content+='</table><br>';
-       content+= `<input  name="quantityList" value="${quantityList}" style="display: none">`
-       content+= `<input  name="idAttachFacilityList" value="${idAttachFacilityList}" style="display: none">`
-       document.getElementById('attachFacilityList').innerHTML=content;
-   }
-   function showAttachDetail(id) {
-       $("#showSlow").empty();
-       $("#note").show();
-       $.ajax({
-           url: "http://localhost:8080/api/contract/v1/" + id,
-           type: "GET",
-           dataType: "json",
-           success: function (data) {
-               if (data.length > 0) {
-                   $("#note").hide();
-                   let tr = [];
+    function addAttachFacility() {
+        let attachFacilityId = document.getElementById('attachFacility').value;
+        let attachFacility = $("#attachFacility option:selected").data("name");
+        let quantity = parseInt(document.getElementById('quantity').value);
 
-                   tr.push("<tr>");
-                   tr.push("<th>" + "Tên dịch vụ đi kèm" + "</th>");
-                   tr.push("<th class='px-5'>" + "Đơn vị" + "</th>");
-                   tr.push("<th class='text-center'>" + "Số lượng" + "</th>");
-                   tr.push("</tr>");
+        if (nameAttachFacilityList.includes(attachFacility)) {
+            let index = nameAttachFacilityList.indexOf(attachFacility);
+            quantityList[index] += quantity;
+        } else {
+            nameAttachFacilityList.push(attachFacility);
+            quantityList.push(quantity);
+            idAttachFacilityList.push(attachFacilityId);
+        }
+        showAttachFacilityList(nameAttachFacilityList, quantityList);
+    }
 
-                   for (let i = 0; i < data.length; i++) {
-                       tr.push("<tr>");
-                       tr.push("<td class='text-primary h6'>" + data[i].nameDto + "</td>");
-                       tr.push("<td class='text-primary px-5'>" + data[i].unitDto + "</td>");
-                       tr.push("<td class='text-primary text-center'>" + data[i].quantityDto + "</td>");
-                       tr.push("</tr>");
-                   }
-                   $("#showSlow").append(tr.join(""));
-                   $("#showSlow").hide();
-                   $("#showSlow").fadeIn(4000);
-               }
-           }
-       })
-   }
-   function addContractdetail(id) {
-       document.getElementById("contractId").value = id;
-   }
+    function showAttachFacilityList(nameAttachFacilityList, quantityList) {
+        let content = "";
+        content += '<table style="border-style: solid; color: red" class="table table-striped" >' + '<tr>';
+        for (let i = 0; i < nameAttachFacilityList.length; i++) {
+            content += '<td>' + nameAttachFacilityList[i] + '</td>';
+        }
+        content += '</tr>';
+        content += '<tr>';
+        for (let i = 0; i < quantityList.length; i++) {
+            content += '<td>' + quantityList[i] + '</td>';
+        }
+        content += '</tr>';
+        content += '</table><br>';
+        content += `<input  name="quantityList" value="${quantityList}" style="display: none">`
+        content += `<input  name="idAttachFacilityList" value="${idAttachFacilityList}" style="display: none">`
+        document.getElementById('attachFacilityList').innerHTML = content;
+    }
+
+    function showAttachDetail(id) {
+        $("#show").empty();
+        $("#note").show();
+        $.ajax({
+            url: "http://localhost:8080/api/contract/v1/" + id,
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                if (data.length > 0) {
+                    $("#note").hide();
+                    let content = "";
+
+                    content += "<tr>";
+                    content += "<th>" + "Tên dịch vụ đi kèm" + "</th>";
+                    content += "<th class='px-5'>" + "Đơn vị" + "</th>";
+                    content += "<th class='text-center'>" + "Số lượng" + "</th>";
+                    content += "</tr>";
+
+                    for (let i = 0; i < data.length; i++) {
+                        content += "<tr>";
+                        content += "<td class='text-primary h6'>" + data[i].nameDto + "</td>";
+                        content += "<td class='text-primary px-5'>" + data[i].unitDto + "</td>";
+                        content += "<td class='text-primary text-center'>" + data[i].quantityDto + "</td>";
+                        content += "</tr>";
+                    }
+                    $("#show").html(content);
+                }
+            }
+        })
+    }
+
+    function addContractdetail(id) {
+        document.getElementById("contractId").value = id;
+    }
 
 
 </script>

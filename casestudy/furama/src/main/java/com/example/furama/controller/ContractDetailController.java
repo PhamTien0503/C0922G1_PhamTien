@@ -20,15 +20,23 @@ import java.util.List;
 public class ContractDetailController {
     @Autowired
    private IContractDetailService iContractDetailService;
+//    @GetMapping("/{id}")
+//    public ResponseEntity<List<IContractDetailDto>> showAll(@PathVariable int id) {
+//        List<IContractDetailDto> list = iContractDetailService.showAll(id);
+//
+//        if (list.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//
+//        return new ResponseEntity<>(list, HttpStatus.OK);
+//    }
     @GetMapping("/{id}")
     public ResponseEntity<List<IContractDetailDto>> showAll(@PathVariable int id) {
-        List<IContractDetailDto> list = iContractDetailService.showAll(id);
-
-        if (list.isEmpty()) {
+        List<IContractDetailDto>list=iContractDetailService.showAll(id);
+        if (list.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
-        return new ResponseEntity<>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
 
