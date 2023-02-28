@@ -8,7 +8,10 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.lang.annotation.Annotation;
 import java.util.Set;
 
@@ -16,30 +19,33 @@ import java.util.Set;
 public class FacilityDto implements Validator {
 
     private Integer facilityId;
-    @NotBlank
+    @NotBlank(message = "Tên dịch vụ không được để trống.")
+    @Pattern(regexp = "^(([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}( \\d*)?)| *$",
+            message = "Tên dịch vụ được phép chứa số, và các kí tự đầu tiên của mỗi từ phải viết hoa.")
     private String facilityName;
-
+    @Min(0)
     private int facilityArea;
-
+    @Min(0)
     private double rentCost;
 
+    @Min(0)
     private int maxPeople;
-
+    @NotBlank(message = "Tên dịch vụ không được để trống.")
     private String standardRoom;
-
+    @NotBlank(message = "Tên dịch vụ không được để trống.")
     private String descriptionOtherConvenience;
-
+    @Min(0)
     private double poolArea;
-
+    @Min(0)
     private int numberOfFloors;
-
+    @NotBlank(message = "Tên dịch vụ không được để trống.")
     private String facilityFree;
     private boolean deleteStatus;
 
-
+    @NotNull
     private RentType rentType;
 
-
+    @NotNull
     private FacilityType facilityType;
 
 

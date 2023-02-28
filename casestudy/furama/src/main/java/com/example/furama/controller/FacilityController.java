@@ -76,7 +76,7 @@ public class FacilityController {
             if (isDuplicateName) {
                 model.addAttribute("isDuplicateName","Tên đã tồn tại, vui lòng kiểm tra lại.");
             }
-            return "customer/create";
+            return "facility/create";
         }
         Facility facility = new Facility();
         BeanUtils.copyProperties(facilityDto, facility);

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heo</title>
+</head>
+<body>
+<h2>LIST HEO</h2>
+<button type="button" class="btn btn-warning"><a th:href="@{/heo/create}">Add Heo</a></button>
+<h3 th:text="${mess}"></h3>
+<table class="table table-striped" id="tableHeo">
+    <thead>
+    <tr>
+        <th scope="col">Ma so heo</th>
+        <th scope="col">Ngay nhap chuong</th>
+        <th scope="col">Trong luong nhap chuong</th>
+        <th scope="col">Ngay xuat chuong</th>
+        <th scope="col">Trong luong xuat chuong</th>
+        <th scope="col">Xuat xu</th>
+        <th scope="col">Xuat chuong</th>
+        <th scope="col">Detail</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="heo: ${heoList}" >
+        <td th:text="${heo.maSoHeo}"></td>
+        <td th:text="${heo.ngayNhapChuong}"></td>
+        <td th:text="${heo.trongLuongNhap}"></td>
+        <td  th:if="${heo.ngayXuatChuong==''}>chua den ngay xuat</td>
+        <td  th:if="${heo.ngayXuatChuong!=''} th:text=${heo.ngayXuatChuong"></td>
+        <td th:text="${heo.trongLuongXuat}"></td>
+        <td th:text="${heo.xuatXu.name}"></td>
+        <td class="text-center">
+            <a th:href="@{/customer/edit/__${customer.customerId}__}">
+                <button class="btn btn-success btn-outline-secondary btn-sm">
+                    <span class="fa-solid fa-user-pen text-light h6 m-auto px-2">Edit</span>
+                </button>
+            </a>
+        </td>
+        <td class="text-center">
+            <button th:attr="onclick=|deleteCustomer('${customer.customerId}', '${customer.customerName}')|"
+                    class="btn btn-danger btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#deleteCustomer">
+                <span class="fa-solid fa-person-circle-minus text-light h6 m-auto px-2">Delete</span>
+            </button>
+        </td>
+    </tr>
+    </c:forEach>
+    </tbody>
+</table>
+<div class="col-md-12 col-sm-12 " style="float: right;">
+    <a class="btn btn-primary"
+       th:href="@{customer(page=${customerList.number - 1},nameSearch=${nameSearch},emailSearch=${emailSearch},idSearch=${idSearch})}"
+       th:if="${customerList.hasPrevious()}">Previous</a>
+    <span th:text="${customerList.number +1}"></span>/<span th:text="${customerList.totalPages}"></span>
+    <a class="btn btn-primary"
+       th:href="@{customer(page=${customerList.number + 1 },nameSearch=${nameSearch},emailSearch=${emailSearch},idSearch=${idSearch})}"
+       th:if="${customerList.hasNext()}">Next</a>
+</div>
+</div>
+
+</body>
+</html>

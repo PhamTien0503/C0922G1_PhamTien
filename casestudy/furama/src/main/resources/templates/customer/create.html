@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="d-flex justify-content-center">
-    <form class="w-25 border border-2 border-dark p-3 rounded " th:object="${customerDto}" th:action="@{/customer/save}" method="post">
+    <form class="w-50 border border-2 border-dark p-3 rounded " th:object="${customerDto}" th:action="@{/customer/save}" method="post">
         <div>
             <p style="color: red" th:text="${mess}"></p>
         </div>
